@@ -8,17 +8,17 @@ import lombok.Getter;
 @Getter
 public class ProductResponseDTO {
     
-    private String codigo;
-    private String descricao;
-    private BigDecimal preco;
-    private int estoque;
-    private String marca;
+    private String code;
+    private String description;
+    private BigDecimal price;
+    private int stock;
+    private String brand;
 
     public ProductResponseDTO(Product p){
-        this.codigo = p.getCodigo();
-        this.descricao = p.getDescricao();
-        this.preco = p.getPreco();
-        this.estoque = p.getEstoque();
-        this.marca = p.getMarca().getName();
+        this.code = p.getCode();
+        this.description = p.getDescription();
+        this.price = p.getPrice();
+        this.stock = p.getStock();
+        this.brand = p.getBrand().getName();
     }
 }

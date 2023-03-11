@@ -18,15 +18,16 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private String codigo;
+    private String code;
     
-    private String descricao;
+    private String description;
     
-    private BigDecimal preco;
+    private BigDecimal price;
+    
+    private int stock;
     
     @ManyToOne
-    @JoinColumn(name = "id_marca_fk")
-    private Marca marca;
+    @JoinColumn(name = "id_brand_fk")
+    private Brand brand;
     
-    private int estoque;
 }

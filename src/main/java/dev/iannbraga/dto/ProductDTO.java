@@ -7,9 +7,9 @@ import lombok.Getter;
 @Getter
 public class ProductDTO {
     
-    private String codigo;
-    private String descricao;
-    private BigDecimal preco;
-    private int estoque;
-    private Long idMarca;
+    private String code;
+    private String description;
+    private BigDecimal price;
+    private int stock;
+    private Long idBrand;
 }

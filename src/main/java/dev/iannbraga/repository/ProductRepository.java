@@ -16,6 +16,6 @@ public class ProductRepository implements PanacheRepository<Product>{
     }
     public List<Product> findByDescricao(String descricao) {
         String like = "%"+descricao+"%";
-        return find("descricao like ?1", like).list();
+        return find("description like ?1", like).list();
     }    
 }

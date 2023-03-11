@@ -15,7 +15,7 @@ import javax.ws.rs.PathParam;
 import dev.iannbraga.dto.ProductDTO;
 import dev.iannbraga.dto.ProductResponseDTO;
 import dev.iannbraga.model.Product;
-import dev.iannbraga.repository.MarcaRepository;
+import dev.iannbraga.repository.BrandRepository;
 import dev.iannbraga.repository.ProductRepository;
 
 @Path("/products")
@@ -25,17 +25,17 @@ public class ProductResource {
     ProductRepository productRepository;
 
     @Inject
-    MarcaRepository marcaRepository;
+    BrandRepository brandRepository;
 
     @POST
     @Transactional
     public ProductResponseDTO persist(ProductDTO newProduct){
         Product p = new Product();
-        p.setCodigo(newProduct.getCodigo());
-        p.setDescricao(newProduct.getDescricao().toUpperCase());
-        p.setEstoque(newProduct.getEstoque());
-        p.setPreco(newProduct.getPreco());
-        p.setMarca(marcaRepository.findById(newProduct.getIdMarca()));
+        p.setCode(newProduct.getCode());
+        p.setDescription(newProduct.getDescription().toUpperCase());
+        p.setStock(newProduct.getStock());
+        p.setPrice(newProduct.getPrice());
+        p.setBrand(brandRepository.findById(newProduct.getIdBrand()));
         productRepository.persist(p);
         
         return new ProductResponseDTO(p);
@@ -46,11 +46,11 @@ public class ProductResource {
     @Transactional
     public ProductResponseDTO update(@PathParam("id") Long id, ProductDTO receiveProduct){
         Product p = productRepository.findById(id);
-        p.setCodigo(receiveProduct.getCodigo());
-        p.setDescricao(receiveProduct.getDescricao().toUpperCase());
-        p.setEstoque(receiveProduct.getEstoque());
-        p.setPreco(receiveProduct.getPreco());
-        p.setMarca(marcaRepository.findById(receiveProduct.getIdMarca()));
+        p.setCode(receiveProduct.getCode());
+        p.setDescription(receiveProduct.getDescription().toUpperCase());
+        p.setStock(receiveProduct.getStock());
+        p.setPrice(receiveProduct.getPrice());
+        p.setBrand(brandRepository.findById(receiveProduct.getIdBrand()));
         
         return new ProductResponseDTO(p);
     }

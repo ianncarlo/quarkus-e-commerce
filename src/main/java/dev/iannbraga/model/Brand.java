@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Marca {
+public class Brand {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
